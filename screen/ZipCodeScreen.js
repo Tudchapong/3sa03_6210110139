@@ -1,6 +1,7 @@
 import React from 'react'
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, Text, TouchableHighlight, View } from 'react-native'
 import { useNavigation } from '@react-navigation/core'
+import WeatherScreen from './WeatherScreen'
 
 const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
@@ -11,10 +12,12 @@ const availableZipItems = [
    ]   
 
 const ZipItem = ({place,code,navigation}) => (
-    <View>
-        <Text>{place}</Text>
-        <Text>{code}</Text>
-    </View>
+    <TouchableHighlight onPress={() => navigation.navigate('Weather',{ zipCode: code})}>
+        <View>
+            <Text>{place}</Text>
+            <Text>{code}</Text>
+        </View>
+    </TouchableHighlight>
 )
 
 const _keyExtractor = item => item.code
