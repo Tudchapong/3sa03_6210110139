@@ -10,6 +10,8 @@ export default function Weather(props){
     })
     return(
         <ImageBackground source={require('../rainy.jpg')} style={styles.backdrop}>
+            <Text>Zip Code</Text>
+            <Text>{props.zipCode}</Text>
             <Forecast {...forecastInfo}/>
         </ImageBackground>
     )
@@ -17,6 +19,9 @@ export default function Weather(props){
 
 const styles = StyleSheet.create({
     backdrop:{
+        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'center',
         width: '100%',
         height: '100%'
     }
