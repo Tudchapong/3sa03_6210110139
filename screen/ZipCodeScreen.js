@@ -1,5 +1,6 @@
 import React from 'react'
 import { FlatList, Text, View } from 'react-native'
+import { useNavigation } from '@react-navigation/core'
 
 const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
@@ -23,11 +24,11 @@ export default function ZipCodeScreen(){
     return(
         <View>
          <FlatList
-            data = {availableZipItem}
+            data = {availableZipItems}
             keyExtracter = {_keyExtractor}
-            renderItem = {({item})=> <ZipItem{...item} navigation={navigation} />}
+            renderItem = {({item}) => <ZipItem {...item} navigation={navigation} />}
          />
-         <StausBar style="auto">
+         
         </View>
     
     )
