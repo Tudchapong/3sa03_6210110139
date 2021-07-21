@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Text, TouchableHighlight, View } from 'react-native'
+import { FlatList, Text, TouchableHighlight, View, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/core'
 import WeatherScreen from './WeatherScreen'
 
@@ -9,6 +9,7 @@ const availableZipItems = [
     { place: 'Chiangmai', code: '50000' },
     { place: 'Khonkaen', code: '40000' },
     { place: 'Chonburi', code: '20000' },
+    { place: 'Chiangrai', code: '57000'}
    ]   
 
 const ZipItem = ({place,code,navigation}) => (
@@ -36,3 +37,21 @@ export default function ZipCodeScreen(){
     
     )
 }
+
+const styles = StyleSheet.create({
+    ZipItem:{
+        flex: 1
+    },
+    zipCode:{
+        flex: 1
+    },
+    zipPlece:{
+        flex: 1
+    },
+    Text:{
+        fontSize: 25,
+        textAlign: 'right',
+        paddingTop: 35,
+        color: 'red'
+    }
+})
