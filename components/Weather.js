@@ -35,7 +35,7 @@ export default function Weather(props){
     
     return(
         <ImageBackground source={require('../rainy.jpg')} style={styles.backdrop}>
-           <View style={styles.View}>   
+           <View style={styles.View}>
             <Text style= {styles.Text} >Zip Code</Text>
             <Text style= {styles.Text1}>{props.zipCode}</Text> 
             <Forecast {...forecastInfo}/>
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         width: '100%',
         height: '100%',
-        backgroundColor: 'white'
     },
     View:{
         backgroundColor: 'rgb(165, 255, 161)'
