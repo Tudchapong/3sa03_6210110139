@@ -1,6 +1,7 @@
 import React, { useEffect,useState }  from 'react'
 import { StyleSheet,ImageBackground, Text,View } from 'react-native'
 import Forecast from './Forecast'
+import ZipCodeScreen from '../screen/ZipCodeScreen'
 
 export default function Weather(props){
     
@@ -20,7 +21,10 @@ export default function Weather(props){
                     main: json.weather[0].main,
                     description: json.weather[0].description,
                     temp: json.main.temp,
-                    speed: json.wind.speed
+                    speed: json.wind.speed,
+                    degree: json.wind.deg,
+                    pressure: json.main.pressure,
+                    humidity: json.main.humidity
                 });
                 })
             .catch((error) => {
@@ -31,7 +35,7 @@ export default function Weather(props){
     
     return(
         <ImageBackground source={require('../rainy.jpg')} style={styles.backdrop}>
-           <View style={styles.View}>
+           <View style={styles.View}>   
             <Text style= {styles.Text} >Zip Code</Text>
             <Text style= {styles.Text1}>{props.zipCode}</Text> 
             <Forecast {...forecastInfo}/>
@@ -54,6 +58,10 @@ const styles = StyleSheet.create({
     },
     Text:{
         fontSize: 25,
+        textAlign: 'center'
+    },
+    Text0:{
+        fontSize: 30,
         textAlign: 'center'
     },
     Text1:{

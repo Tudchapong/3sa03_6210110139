@@ -7,7 +7,10 @@ export default function Forecast(props){
             <Text style={styles.Text}>{props.main}</Text>
             <Text style={styles.Text0}>detail : {props.description}</Text>
             <Text style={styles.Text1}>temperature : {props.temp} °C</Text>
-            <Text style={styles.Text2}>wind speed : {props.speed}</Text>
+            <Text style={styles.Text2}>wind speed : {props.speed} m/s</Text>
+            <Text style={styles.Text0}>wind degree : {props.degree}</Text>
+            <Text style={styles.Text1}>pressure : {props.pressure} hPa</Text>
+            <Text style={styles.Text2}>humidity : {props.humidity} %</Text> 
         </View>
     )
 }
