@@ -1,7 +1,6 @@
-import React from 'react'
+import React , {useEffect,useState }  from 'react'
 import { FlatList, Text, TouchableHighlight, View, StyleSheet ,ImageBackground} from 'react-native'
 import { useNavigation } from '@react-navigation/core'
-import Weather from '../components/Weather'
 
 const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
@@ -9,9 +8,10 @@ const availableZipItems = [
     { place: 'Chiangmai', code: '50000' },
     { place: 'Khonkaen', code: '40000' },
     { place: 'Chonburi', code: '20000' },
-    { place: 'Chiangrai', code: '57000'}
+    { place: 'Chiangrai', code: '57000'},
+    { place: 'Phatthalung' , code: '93000'}
    ]   
-
+   
 const ZipItem = ({place,code,navigation}) => (
         <TouchableHighlight onPress={() => navigation.navigate('Weather',{ zipCode: code})}>
             <View>
@@ -25,6 +25,7 @@ const _keyExtractor = item => item.code
 
 export default function ZipCodeScreen(){
     const navigation = useNavigation()
+
     return(
         <ImageBackground source={require('../rainy.jpg')} style={styles.backdrop}>
             <View>
@@ -48,12 +49,14 @@ const styles = StyleSheet.create({
     },
     Text:{
         fontSize: 18,
+        fontStyle: 'italic',
         textAlign: 'center',
         paddingTop: 20,
         color: 'orange'
     },
     Text1:{
         fontSize: 10,
+        fontStyle: 'italic',
         textAlign: 'center',
         paddingTop: 20,
         color: 'red'

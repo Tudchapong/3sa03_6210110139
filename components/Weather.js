@@ -1,14 +1,20 @@
 import React, { useEffect,useState }  from 'react'
 import { StyleSheet,ImageBackground, Text,View } from 'react-native'
 import Forecast from './Forecast'
-import ZipCodeScreen from '../screen/ZipCodeScreen'
 
 export default function Weather(props){
     
     const [forecastInfo, setForecastInfo] = useState({
         main: '-',
         descroption: '-',
-        temp: 0
+        temp: 0,
+        speed: 0,
+        degree: 0,
+        pressure: 0,
+        humidity: 0,
+        clouds: 0,
+        visibility: 0,
+        country: '-'
     })
 
     useEffect(() => {
@@ -24,7 +30,10 @@ export default function Weather(props){
                     speed: json.wind.speed,
                     degree: json.wind.deg,
                     pressure: json.main.pressure,
-                    humidity: json.main.humidity
+                    humidity: json.main.humidity,
+                    clouds: json.clouds.all,
+                    visibility: json.visibility,
+                    country: json.sys.country
                 });
                 })
             .catch((error) => {
