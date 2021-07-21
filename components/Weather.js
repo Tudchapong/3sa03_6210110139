@@ -1,5 +1,5 @@
 import React, { useEffect,useState }  from 'react'
-import { StyleSheet,ImageBackground, Text } from 'react-native'
+import { StyleSheet,ImageBackground, Text,View } from 'react-native'
 import Forecast from './Forecast'
 
 export default function Weather(props){
@@ -19,7 +19,9 @@ export default function Weather(props){
                 setForecastInfo({
                     main: json.weather[0].main,
                     description: json.weather[0].description,
-                    temp: json.main.temp});
+                    temp: json.main.temp,
+                    speed: json.wind.speed
+                });
                 })
             .catch((error) => {
                 console.warn(error);
@@ -29,29 +31,33 @@ export default function Weather(props){
     
     return(
         <ImageBackground source={require('../rainy.jpg')} style={styles.backdrop}>
+           <View style={styles.View}>
             <Text style= {styles.Text} >Zip Code</Text>
-            <Text style= {styles.Text1}>{props.zipCode}</Text>
-            <Text style= {styles.Text}>Forcast</Text> 
+            <Text style= {styles.Text1}>{props.zipCode}</Text> 
             <Forecast {...forecastInfo}/>
+           </View>
         </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
     backdrop:{
-        alignItems: 'center',
+        alignItems: 'stretch',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         width: '100%',
-        height: '100%'
+        height: '100%',
+        backgroundColor: 'white'
+    },
+    View:{
+        backgroundColor: 'rgb(165, 255, 161)'
     },
     Text:{
         fontSize: 25,
-        textAlign: 'right'
+        textAlign: 'center'
     },
     Text1:{
         fontSize: 20,
         color: 'purple',
-        textAlign: 'justify'
-    }
+        textAlign: 'center'}
 })
